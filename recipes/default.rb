@@ -26,4 +26,9 @@ if platform?("centos")
   package 'nginx' do
     action :install
   end
+
+  service 'nginx' do
+    supports :restart => true, :reload => true, :status => true
+    action [:enable, :start]
+  end
 end
